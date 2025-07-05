@@ -1,0 +1,9 @@
+import mill._, scalalib._
+
+object euler extends ScalaModule {
+  def scalaVersion = "3.7.1"
+
+  def ivyDeps = Agg(
+    ivy"org.scalatest::scalatest:3.2.17"
+  )
+}
