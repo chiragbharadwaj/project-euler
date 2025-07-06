@@ -11,6 +11,7 @@ object Problem009 {
 
   def main(args: Array[String]): Unit = {
     val sum = 1_000
+
     val triplets = generatePythagoreanTriplets()
     val product =
       triplets

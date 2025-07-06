@@ -1,14 +1,17 @@
 package euler.problem
 
 object Problem004 {
-  private def powUpTo(base: Int, digits: Int) =
-    LazyList.fill(digits - 1)(base).product
+  private def pow(base: Int, exp: Int) =
+    LazyList.fill(exp)(base).product
 
   private def getDigitBounds(digits: Int) = {
-    val min = powUpTo(10, digits)
-    val max = powUpTo(10, digits + 1) - 1
+    val min = pow(10, digits - 1)
+    val max = pow(10, digits) - 1
     (min, max)
   }
+
+  private def getSubStream(max: Long)(k: Int) =
+    LazyList.from(k).takeWhile(_ <= max).map(_ * k)
 
   private def isPalindrome(n: Int) =
     n.toString == n.toString.reverse
@@ -18,7 +21,7 @@ object Problem004 {
 
     LazyList.from(min)
       .takeWhile(_ <= max)
-      .flatMap(k => (k to max).map(_ * k))
+      .flatMap(getSubStream(max))
       .filter(isPalindrome)
       .max
   }
