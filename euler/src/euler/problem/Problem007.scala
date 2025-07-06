@@ -11,10 +11,9 @@ object Problem007 {
   }
 
   def main(args: Array[String]): Unit = {
-    val n = 10_001
     val primes = generatePrimes()
-    val nthPrime = primes.drop(n - 1).head
+    val nth = primes.drop(10_000).head
 
-    println(s"The $n-th prime number is: $nthPrime")
+    println(s"$nth")
   }
 }

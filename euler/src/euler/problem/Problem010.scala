@@ -11,11 +11,9 @@ object Problem010 {
   }
 
   def main(args: Array[String]): Unit = {
-    val limit = 2_000_000
-
     val primes = generatePrimes()
-    val sum = primes.takeWhile(_ < limit).sum
+    val sum = primes.takeWhile(_ < 2_000_000).sum
 
-    println(s"The sum of all primes below $limit is: $sum")
+    println(s"$sum")
   }
 }

@@ -9,11 +9,10 @@ object Problem003 {
       .fold(List(n))(k => k :: getPrimeFactors(n / k))
 
   def main(args: Array[String]): Unit = {
-    val number = 600_851_475_143L
+    val n = 600_851_475_143L
+    val factors = getPrimeFactors(n)
+    val max = factors.max
 
-    val primeFactors = getPrimeFactors(number)
-    val largestPrimeFactor = primeFactors.max
-
-    println(s"The largest prime factor of $number is: $largestPrimeFactor")
+    println(s"$max")
   }
 }
