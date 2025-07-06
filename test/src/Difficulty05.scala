@@ -62,8 +62,7 @@ class Difficulty05 extends AnyFlatSpec {
 
   "Problem 005" should "find the smallest number evenly divisible by all of {1, ..., 20}" in {
     val smallest =
-      LazyList.from(1)
-        .map(BigInt(_))
+      Numbers.getNatStream()
         .takeWhile(_ <= 20)
         .reduce(Numbers.lcm)
 

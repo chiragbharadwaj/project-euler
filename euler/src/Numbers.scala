@@ -9,4 +9,7 @@ object Numbers {
 
   def isPalindrome(n: BigInt) =
     n.toString == n.toString.reverse
+
+  def getNatStream(): LazyList[BigInt] =
+    LazyList.iterate(BigInt(1))(_ + 1)
 }
