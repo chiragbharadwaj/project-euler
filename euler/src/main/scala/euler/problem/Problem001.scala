@@ -13,10 +13,10 @@ object Problem001 {
 
   def main(args: Array[String]): Unit = {
     val factors = List(3, 5)
-    val limit = 1000
+    val limit = 1_000
 
     val sum = getSumOfMultiples(factors, limit)
 
-    println(s"The sum of all multiples of 3 and 5 below 1000 is: $sum")
+    println(s"The sum of all multiples of ${factors.mkString(", ")} below $limit is: $sum")
   }
 }
