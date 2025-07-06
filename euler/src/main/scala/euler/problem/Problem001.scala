@@ -6,8 +6,8 @@ object Problem001 {
       .map(n % _ == 0)
       .reduce(_ || _)
 
-  private def getSumOfMultiples(factors: List[Int], limit: Int) =
-    (1 until limit).view
+  private def getSumOfMultiples(factors: List[Int], n: Int) =
+    (1 until n).view
       .filter(isMultipleOfAny(factors))
       .sum
 

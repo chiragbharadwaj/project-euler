@@ -1,10 +1,10 @@
 package euler.problem
 
 object Problem002 {
-  private def getSumOfEvenFibonaccis(limit: Int) = {
+  private def getSumOfEvenFibonaccis(n: Int) = {
     lazy val fibs: LazyList[Int] = 0 #:: fibs.scan(1)(_ + _)
 
-    fibs.takeWhile(_ < limit)
+    fibs.takeWhile(_ < n)
       .filter(_ % 2 == 0)
       .sum
   }
