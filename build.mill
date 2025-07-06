@@ -2,8 +2,13 @@ import mill._, scalalib._
 
 object euler extends ScalaModule {
   def scalaVersion = "3.7.1"
+  def ivyDeps = Agg(ivy"org.scalatest::scalatest:3.2.17")
+}
 
-  def ivyDeps = Agg(
-    ivy"org.scalatest::scalatest:3.2.17"
-  )
+object test extends ScalaModule with TestModule {
+  def moduleDeps = Seq(euler)
+  def scalaVersion = euler.scalaVersion
+  def ivyDeps = euler.ivyDeps
+
+  def testFramework = "org.scalatest.tools.Framework"
 }
