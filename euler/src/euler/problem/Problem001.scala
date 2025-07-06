@@ -7,7 +7,8 @@ object Problem001 {
       .reduce(_ || _)
 
   private def getSumOfMultiples(factors: List[Int], n: Int) =
-    (1 until n).view
+    LazyList.from(1)
+      .takeWhile(_ < n)
       .filter(isMultipleOfAny(factors))
       .sum
 

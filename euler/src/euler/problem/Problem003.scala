@@ -2,7 +2,9 @@ package euler.problem
 
 object Problem003 {
   private def getPrimeFactors(n: Long): List[Long] =
-    (2L to math.sqrt(n).toLong)
+    LazyList.from(2)
+      .map(_.toLong)
+      .takeWhile(_ <= math.sqrt(n).toLong)
       .find(n % _ == 0L)
       .fold(List(n))(k => k :: getPrimeFactors(n / k))
 

@@ -2,7 +2,7 @@ package euler.problem
 
 object Problem004 {
   private def powUpTo(base: Int, digits: Int) =
-    Iterator.fill(digits - 1)(base).product
+    LazyList.fill(digits - 1)(base).product
 
   private def getDigitBounds(digits: Int) = {
     val min = powUpTo(10, digits)
@@ -16,7 +16,8 @@ object Problem004 {
   private def getMaxPalindromeProduct(digits: Int) = {
     val (min, max) = getDigitBounds(digits)
 
-    (min to max).view
+    LazyList.from(min)
+      .takeWhile(_ <= max)
       .flatMap(k => (k to max).map(_ * k))
       .filter(isPalindrome)
       .max

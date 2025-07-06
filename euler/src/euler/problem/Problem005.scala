@@ -8,7 +8,10 @@ object Problem005 {
     (a * b) / gcd(a, b)
 
   private def getSmallestEvenlyDivisible(n: Long) =
-    (1L to n).reduce(lcm)
+    LazyList.from(1)
+      .map(_.toLong)
+      .takeWhile(_ <= n)
+      .reduce(lcm)
 
   def main(args: Array[String]): Unit = {
     val limit = 20L
